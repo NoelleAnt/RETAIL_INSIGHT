@@ -1,0 +1,80 @@
+/* Custom Visual Styles */
+.nav-gradient {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+}
+
+.upload-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 160px;
+    border: 2px dashed #cbd5e1;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.upload-area:hover {
+    border-color: #3b82f6;
+    background-color: #f8fafc;
+}
+
+.label-text {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.input-field {
+    width: 100%;
+    padding: 12px;
+    background: #f1f5f9;
+    border-radius: 10px;
+    outline: none;
+    border: 2px solid transparent;
+    transition: border 0.3s;
+}
+
+.input-field:focus {
+    border-color: #3b82f6;
+}
+
+.predict-btn {
+    width: 100%;
+    background: #0f172a;
+    color: white;
+    font-weight: 700;
+    padding: 15px;
+    border-radius: 12px;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.predict-btn:hover {
+    background: #3b82f6;
+    transform: scale(1.02);
+}
+
+.prediction-box {
+    margin-top: 20px;
+    padding: 20px;
+    background: #eff6ff;
+    border-radius: 15px;
+    border: 1px solid #dbeafe;
+}
+
+/* Staggered Delay Helpers */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
