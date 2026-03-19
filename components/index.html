@@ -18,66 +18,68 @@
                 RETAIL<span class="text-blue-400">INSIGHT</span>
             </h1>
             <div class="animate__animated animate__fadeInRight text-xs font-mono bg-white/10 px-3 py-1 rounded-full">
-                Retail Analytics Program
+                Data Mining Final Project
             </div>
         </div>
     </nav>
 
     <main class="container mx-auto py-10 px-6">
-        <section class="glass-card p-8 mb-10 animate__animated animate__fadeInUp">
-            <h2 class="text-lg font-bold mb-4">Step 1: Ingest Data</h2>
-            <label class="upload-area">
-                <div class="flex flex-col items-center">
-                    <svg class="w-10 h-10 text-blue-500 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
-                    <p class="text-sm">Click to load <span class="font-bold text-blue-600">csv file</span></p>
-                </div>
-                <input id="csvUpload" type="file" class="hidden" accept=".csv" />
-            </label>
+        <section class="glass-card p-8 mb-10 animate__animated animate__fadeInDown">
+            <div class="flex flex-col items-center text-center">
+                <h2 class="text-3xl font-black text-slate-800 mb-2">Upload Your Retail Dataset</h2>
+                <p class="text-slate-500 mb-8 max-w-md">Import your CSV file to begin the automated Data Mining and segmentation analysis.</p>
+                
+                <label class="upload-area group">
+                    <input type="file" id="csvUpload" class="hidden" accept=".csv">
+                    <svg class="w-12 h-12 text-slate-400 group-hover:text-blue-500 transition-colors mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+                    </svg>
+                    <span class="text-sm font-bold text-slate-600">Click to upload CSV</span>
+                </label>
+            </div>
         </section>
 
-        <div id="dashboard" class="hidden">
+        <div id="dashboard" class="hidden space-y-10">
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-                <div class="glass-card p-6 animate__animated animate__zoomIn delay-1">
-                    <span class="text-slate-400 text-xs font-bold uppercase">Volume</span>
-                    <div id="totalTrans" class="text-3xl font-black mt-1">-</div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-card p-6 border-b-4 border-blue-500">
+                    <p class="label-text">Total Transactions</p>
+                    <h3 id="totalTransactions" class="text-4xl font-black text-slate-800">0</h3>
                 </div>
-                <div class="glass-card p-6 animate__animated animate__zoomIn delay-2">
-                    <span class="text-slate-400 text-xs font-bold uppercase">Avg. Spending</span>
-                    <div id="avgSpend" class="text-3xl font-black mt-1 text-green-600">-</div>
+                <div class="glass-card p-6 border-b-4 border-emerald-500">
+                    <p class="label-text">Avg Ticket Size</p>
+                    <h3 id="avgTicket" class="text-4xl font-black text-slate-800">$0.00</h3>
                 </div>
-                <div class="glass-card p-6 animate__animated animate__zoomIn delay-3">
-                    <span class="text-slate-400 text-xs font-bold uppercase">Top Category</span>
-                    <div id="topCat" class="text-3xl font-black mt-1 text-blue-600">-</div>
+                <div class="glass-card p-6 border-b-4 border-amber-500">
+                    <p class="label-text">Top Category</p>
+                    <h3 id="topCategory" class="text-2xl font-black text-slate-800">-</h3>
                 </div>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
-                <div class="glass-card p-8 animate__animated animate__fadeInUp">
-                    <h3 class="font-bold mb-6 flex items-center gap-2">
-                        <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
-                        Customer Segments
-                    </h3>
+                <div class="glass-card p-8 animate__animated animate__fadeInLeft">
+                    <h3 class="font-bold mb-1">Customer Segmentation (K-Means)</h3>
+                    <p class="text-xs text-slate-400 mb-6">Clustered by Age vs Spending Volume</p>
                     <canvas id="clusterChart"></canvas>
                 </div>
 
                 <div class="glass-card p-8 animate__animated animate__fadeInUp border-l-4 border-blue-500">
                     <h3 class="font-bold mb-1">Revenue Predictor</h3>
-                    <p class="text-xs text-slate-400 mb-6">Trained Linear Regression Model</p>
+                    <p class="text-xs text-slate-400 mb-6">Trained Linear Regression Model Logic</p>
                     
                     <div class="space-y-4">
                         <div class="group">
-                            <label class="label-text">Unit Price</label>
+                            <label class="label-text">Unit Price ($)</label>
                             <input type="number" id="predPrice" value="100" class="input-field">
                         </div>
                         <div class="group">
                             <label class="label-text">Quantity</label>
                             <input type="number" id="predQty" value="1" class="input-field">
                         </div>
-                        <button onclick="predictAmount()" class="predict-btn">Run Prediction</button>
+                        <button onclick="predictAmount()" class="predict-btn">Run Regression Prediction</button>
                         
                         <div class="prediction-box">
-                            <span class="text-xs font-bold text-blue-400">ESTIMATED TOTAL</span>
+                            <span class="text-xs font-bold text-blue-400">ESTIMATED TOTAL AMOUNT</span>
                             <div id="predictionResult" class="text-4xl font-black text-blue-900">$0.00</div>
                         </div>
                     </div>

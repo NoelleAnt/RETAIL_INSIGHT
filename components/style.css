@@ -1,4 +1,4 @@
-/* Custom Visual Styles */
+/* Glassmorphism Styles */
 .nav-gradient {
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
 }
@@ -44,37 +44,32 @@
     border-radius: 10px;
     outline: none;
     border: 2px solid transparent;
-    transition: border 0.3s;
+    transition: all 0.2s;
 }
 
 .input-field:focus {
     border-color: #3b82f6;
+    background: white;
 }
 
 .predict-btn {
     width: 100%;
-    background: #0f172a;
+    padding: 14px;
+    background: #1e293b;
     color: white;
-    font-weight: 700;
-    padding: 15px;
-    border-radius: 12px;
-    transition: transform 0.2s, background 0.2s;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: transform 0.2s;
 }
 
-.predict-btn:hover {
-    background: #3b82f6;
-    transform: scale(1.02);
+.predict-btn:active {
+    transform: scale(0.98);
 }
 
 .prediction-box {
-    margin-top: 20px;
-    padding: 20px;
+    margin-top: 2rem;
+    padding: 1.5rem;
     background: #eff6ff;
     border-radius: 15px;
-    border: 1px solid #dbeafe;
+    text-align: center;
 }
-
-/* Staggered Delay Helpers */
-.delay-1 { animation-delay: 0.1s; }
-.delay-2 { animation-delay: 0.2s; }
-.delay-3 { animation-delay: 0.3s; }
